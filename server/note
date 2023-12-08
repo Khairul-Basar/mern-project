@@ -1,0 +1,2 @@
+command : npm init -y 
+** npm install mongoose express dotenv nodemon
