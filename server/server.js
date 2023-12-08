@@ -5,6 +5,7 @@ const { PORT } = process.env;
 
 // import dependencies
 const express = require("express");
+const cors = require("cors");
 const db = require("./database/db");
 const Note = require("./models/noteSchema");
 
@@ -13,6 +14,7 @@ const app = express();
 
 // midddleware config with express app
 app.use(express.json());
+app.use(cors());
 
 // Database Connect
 db();
@@ -47,6 +49,22 @@ app.post("/notes", async (req, res) => {
       title,
       description,
     });
+    res.json(note);
+  } catch (err) {
+    console.log(err);
+  }
+});
+
+// Update Note
+app.put("/notes/:id", async (req, res) => {
+  try {
+    const { title, description } = req.body;
+    const { id } = req.params;
+    await Note.findByIdAndUpdate(id, {
+      title,
+      description,
+    });
+    const note = await Note.findById(id);
     res.json(note);
   } catch (err) {
     console.log(err);
