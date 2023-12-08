@@ -22,7 +22,12 @@ const app = express();
 
 // midddleware config with express app
 app.use(express.json());
-app.use(cors());
+app.use(
+  cors({
+    origin: true,
+    credentials: true,
+  })
+);
 
 // Database Connect
 db();
