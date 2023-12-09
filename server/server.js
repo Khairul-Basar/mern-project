@@ -5,6 +5,7 @@ const { PORT } = process.env;
 
 // import dependencies
 const express = require("express");
+const cookieParser = require("cookie-parser");
 const cors = require("cors");
 const db = require("./database/db");
 
@@ -16,7 +17,7 @@ const {
   deleteNote,
 } = require("./controllers/noteController");
 
-const { signUp } = require("./controllers/userController");
+const { signUp, login } = require("./controllers/userController");
 
 // create express app
 const app = express();
@@ -29,12 +30,16 @@ app.use(
     credentials: true,
   })
 );
+app.use(cookieParser());
 
 // Database Connect
 db();
 
 // Signup
 app.post("/signup", signUp);
+
+// Login
+app.post("/login", login);
 
 // Get All Notes
 app.get("/notes", allNotes);
