@@ -57,8 +57,14 @@ const logout = async (req, res) => {
   }
 };
 
+const checkAuth = (req, res) => {
+  console.log(req.user);
+  res.sendStatus(200);
+};
+
 module.exports = {
   signUp,
   login,
   logout,
+  checkAuth,
 };

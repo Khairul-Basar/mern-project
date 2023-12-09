@@ -8,6 +8,7 @@ const express = require("express");
 const cookieParser = require("cookie-parser");
 const cors = require("cors");
 const db = require("./database/db");
+const requireAuth = require("./middleware/requireAuth");
 
 const {
   allNotes,
@@ -17,7 +18,12 @@ const {
   deleteNote,
 } = require("./controllers/noteController");
 
-const { signUp, login, logout } = require("./controllers/userController");
+const {
+  signUp,
+  login,
+  logout,
+  checkAuth,
+} = require("./controllers/userController");
 
 // create express app
 const app = express();
@@ -41,7 +47,11 @@ app.post("/signup", signUp);
 // Login
 app.post("/login", login);
 
+// Logout
 app.get("/logout", logout);
+
+// Auth
+app.get("/check-auth", requireAuth, checkAuth);
 
 // Get All Notes
 app.get("/notes", allNotes);
