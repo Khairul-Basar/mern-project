@@ -1,17 +1,10 @@
-import axios from "axios";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import Note from "./note/Note";
 
 function App() {
-  const [notes, setNotes] = useState(null);
-  async function getAllNote() {
-    const res = await axios.get("/notes");
-    console.log(res.data.note);
-  }
-
-  getAllNote();
   return (
     <>
-      <h1>Notes</h1>
+      <Note />
     </>
   );
 }
