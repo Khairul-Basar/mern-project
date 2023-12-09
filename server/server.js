@@ -7,7 +7,6 @@ const { PORT } = process.env;
 const express = require("express");
 const cors = require("cors");
 const db = require("./database/db");
-const Note = require("./models/noteSchema");
 
 const {
   allNotes,
@@ -16,6 +15,8 @@ const {
   updateNote,
   deleteNote,
 } = require("./controllers/noteController");
+
+const { signUp } = require("./controllers/userController");
 
 // create express app
 const app = express();
@@ -31,6 +32,9 @@ app.use(
 
 // Database Connect
 db();
+
+// Signup
+app.post("/signup", signUp);
 
 // Get All Notes
 app.get("/notes", allNotes);
