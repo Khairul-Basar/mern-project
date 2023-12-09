@@ -17,7 +17,7 @@ const {
   deleteNote,
 } = require("./controllers/noteController");
 
-const { signUp, login } = require("./controllers/userController");
+const { signUp, login, logout } = require("./controllers/userController");
 
 // create express app
 const app = express();
@@ -40,6 +40,8 @@ app.post("/signup", signUp);
 
 // Login
 app.post("/login", login);
+
+app.get("/logout", logout);
 
 // Get All Notes
 app.get("/notes", allNotes);
