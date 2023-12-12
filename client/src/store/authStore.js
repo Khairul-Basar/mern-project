@@ -19,8 +19,18 @@ const authStore = create((set) => ({
     });
   },
   handleSignup: async () => {
-    const { signupInputField } = authStore.getState();
-    const res = await axios.post("/signup", signupInputField);
+    try {
+      const { signupInputField } = authStore.getState();
+      const res = await axios.post("/signup", signupInputField);
+      set({
+        signupInputField: {
+          email: "",
+          password: "",
+        },
+      });
+    } catch (err) {
+      console.log(err);
+    }
   },
 }));
 
