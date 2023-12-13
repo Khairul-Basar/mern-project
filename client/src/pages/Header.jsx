@@ -8,6 +8,7 @@ function Header() {
         <li>
           <NavLink to="/notes">Notes</NavLink>
         </li>
+
         <li>
           <NavLink to="/login">Login</NavLink>
         </li>

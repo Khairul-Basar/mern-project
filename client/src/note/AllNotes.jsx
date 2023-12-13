@@ -1,8 +1,16 @@
 import React, { useEffect } from "react";
 import notesStore from "../store/notesStore";
+import authStore from "../store/authStore";
 
 function AllNotes() {
-  const { fetchNotes, notes, handleUpdateNote, deleteNote } = notesStore();
+  const { fetchNotes, notes, handleUpdateNote, deleteNote, clearNote } =
+    notesStore();
+
+  const { logout } = authStore();
+  const handleLogout = async () => {
+    await logout();
+    clearNote();
+  };
 
   useEffect(() => {
     fetchNotes();
@@ -10,6 +18,7 @@ function AllNotes() {
   return (
     <div>
       <h1>Notes:</h1>
+      <button onClick={handleLogout}>logout</button>
       {notes
         ? notes.map((note) => (
             <div key={note._id}>

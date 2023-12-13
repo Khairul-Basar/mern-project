@@ -52,8 +52,8 @@ const authStore = create((set) => ({
   },
   handleLogin: async () => {
     try {
-      const { loginInputField, loggedIn } = authStore.getState();
-      const res = await axios("/login", loginInputField, {
+      const { loginInputField } = authStore.getState();
+      const res = await axios.post("/login", loginInputField, {
         withCredentials: true,
       });
 
@@ -66,6 +66,27 @@ const authStore = create((set) => ({
       });
     } catch (err) {
       console.log(err);
+    }
+  },
+  logout: async () => {
+    try {
+      await axios.get("/logout");
+      set({
+        loggedIn: false,
+      });
+    } catch (err) {
+      console.log(err);
+    }
+  },
+  checkAuth: async () => {
+    try {
+      const res = await axios.get("/check-auth");
+      set({
+        loggedIn: true,
+      });
+      // console.log(res.data);
+    } catch (err) {
+      alert(`You are ${err.response.data}. Please Login.`);
     }
   },
 }));

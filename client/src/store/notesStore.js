@@ -96,6 +96,11 @@ const notesStore = create((set) => ({
       notes: filterNotes,
     });
   },
+  clearNote: () => {
+    set({
+      notes: null,
+    });
+  },
 }));
 
 export default notesStore;
