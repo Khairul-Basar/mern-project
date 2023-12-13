@@ -54,19 +54,19 @@ app.get("/logout", logout);
 app.get("/check-auth", requireAuth, checkAuth);
 
 // Get All Notes
-app.get("/notes", allNotes);
+app.get("/notes", requireAuth, allNotes);
 
 // Get Single Note
-app.get("/notes/:id", singleNote);
+app.get("/notes/:id", requireAuth, singleNote);
 
 // Create Note
-app.post("/notes", creatNote);
+app.post("/notes", requireAuth, creatNote);
 
 // Update Note
-app.put("/notes/:id", updateNote);
+app.put("/notes/:id", requireAuth, updateNote);
 
 // Delete Note
-app.delete("/notes/:id", deleteNote);
+app.delete("/notes/:id", requireAuth, deleteNote);
 
 app.listen(PORT, () => {
   console.log(`Server running  on port: ${PORT}`);
