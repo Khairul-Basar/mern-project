@@ -52,7 +52,7 @@ const notesStore = create((set) => ({
 
   fetchNotes: async () => {
     const res = await axios.get("/notes");
-    set({ notes: res.data });
+    set({ notes: res.data.notes });
   },
 
   createNote: async (e) => {
