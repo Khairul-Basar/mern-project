@@ -1,41 +1,50 @@
 {
   "hash": "72b54e19",
-  "browserHash": "d5a3c0cf",
+  "browserHash": "908e1b7b",
   "optimized": {
     "react": {
       "src": "../../node_modules/react/index.js",
       "file": "react.js",
-      "fileHash": "1991ae37",
+      "fileHash": "4b8b3842",
       "needsInterop": true
     },
     "react-dom/client": {
       "src": "../../node_modules/react-dom/client.js",
       "file": "react-dom_client.js",
-      "fileHash": "20930fce",
+      "fileHash": "5c3536bb",
       "needsInterop": true
     },
     "axios": {
       "src": "../../node_modules/axios/index.js",
       "file": "axios.js",
-      "fileHash": "756b29e4",
+      "fileHash": "a468c4a8",
       "needsInterop": false
     },
     "react-router-dom": {
       "src": "../../node_modules/react-router-dom/dist/index.js",
       "file": "react-router-dom.js",
-      "fileHash": "d995b10f",
+      "fileHash": "e2b933b9",
+      "needsInterop": false
+    },
+    "react-router": {
+      "src": "../../node_modules/react-router/dist/index.js",
+      "file": "react-router.js",
+      "fileHash": "0f2e8a41",
       "needsInterop": false
     },
     "zustand": {
       "src": "../../node_modules/zustand/esm/index.mjs",
       "file": "zustand.js",
-      "fileHash": "6f7bf442",
+      "fileHash": "14e55789",
       "needsInterop": false
     }
   },
   "chunks": {
     "chunk-PXJLUKTU": {
       "file": "chunk-PXJLUKTU.js"
+    },
+    "chunk-45ZCYXH4": {
+      "file": "chunk-45ZCYXH4.js"
     },
     "chunk-FQO5W7GE": {
       "file": "chunk-FQO5W7GE.js"
